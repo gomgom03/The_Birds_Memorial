@@ -33,6 +33,10 @@ app.get('/timeline', (req, res) => {
     res.render("timeline.ejs");
 });
 
+app.get('/src', (req, res) => {
+    res.render("src.ejs");
+});
+
 app.use(function (req, res, next) {
     res.status(404).send(`Nothing here. 404 <br><a href="/">or click here to GO HOME</a>`)
 })

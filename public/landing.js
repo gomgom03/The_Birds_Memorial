@@ -58,18 +58,18 @@ function nextCrow(tCrow) {
 }
 
 let curCrows = 1;
-let makeInt = setInterval(crowMake, 10);
+let makeInt = requestAnimationFrame(crowMake);
 let totCrows = 100;
 let allCrows = [];
 function crowMake() {
-    if (curCrows > totCrows) {
-        clearInterval(makeInt);
-        return;
-    }
-    let tCrow = new crow(curCrows / totCrows * 100, Math.floor(Math.random() * 6));
+
+    let tCrow = new crow(curCrows / totCrows * 90, Math.floor(Math.random() * 6));
     nextCrow(tCrow);
     curCrows += curCrows / totCrows;
     allCrows.push(tCrow);
+    if (curCrows <= totCrows) {
+        requestAnimationFrame(crowMake);
+    }
 }
 /*
 function endCrow(tCrow) {
